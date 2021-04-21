@@ -24,7 +24,7 @@ context('Classes endpoint', () => {
 		}).then((response) => {
 			expect(response.status).to.eq(201);
 
-            expect(response.duration).lt(20);
+            expect(response.duration).lt(60);
             
             //Content-Type: application/javascript; charset=utf-8
             expect(response.headers)
