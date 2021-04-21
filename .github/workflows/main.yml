@@ -11,7 +11,7 @@ jobs:
     - name: checkout
       uses: actions/checkout@v1
     - name: Instalar as deps do server
-      uses: bahnutov/npm-install@v1
+      uses: bahmutov/npm-install@v1
       with:
         working-directory: server
     - name: Instalar as deps do web
