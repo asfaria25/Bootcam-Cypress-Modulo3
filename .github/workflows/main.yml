@@ -1,0 +1,27 @@
+name: Run tests
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-16.04
+    steps:
+    - name: checkout
+      uses: actions/checkout@v1
+    - name: Instalar as deps do server
+      uses: bahnutov/npm-install@v1
+      with:
+        working-directory: server
+    - name: Instalar as deps do web
+      uses: bahnutov/npm-install@v1
+      with:
+        working-directory: web
+    - name: component & API UI tests
+      uses: cypress-io/github-actions@v2
+      with:
+        working-directory: server
+        install: false
+        start: npm run start:ci
+        wait-on: 'http://localhost:3000'
